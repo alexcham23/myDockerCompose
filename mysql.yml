@@ -1,0 +1,18 @@
+#version: '3.9'
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Option65.la
+      #MYSQL_DATABASE: citasphp
+      MYSQL_USER: alejoarmira
+      MYSQL_PASSWORD: Option65.la
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./mysql-config:/etc/mysql/conf.d
+volumes:
+  db_data:
